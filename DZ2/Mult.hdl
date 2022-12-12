@@ -1,0 +1,70 @@
+CHIP Mult{
+	IN a[16],b[16];
+	OUT out[16];
+	
+	PARTS:
+	
+	Mult1(a=b[0],b=a, out=res1);
+	BitShiftL(a=a,out=bitshift1);
+	
+	Mult1(a=b[1],b=bitshift1, out=res2);
+	BitShiftL(a=bitshift1,out=bitshift2);
+	
+	Mult1(a=b[2],b=bitshift2, out=res3);
+	BitShiftL(a=bitshift2,out=bitshift3);
+
+	Mult1(a=b[3],b=bitshift3, out=res4);
+	BitShiftL(a=bitshift3,out=bitshift4);
+	
+	Mult1(a=b[4],b=bitshift4, out=res5);
+	BitShiftL(a=bitshift4,out=bitshift5);
+
+	Mult1(a=b[5],b=bitshift5, out=res6);
+	BitShiftL(a=bitshift5,out=bitshift6);
+
+	Mult1(a=b[6],b=bitshift6, out=res7);
+	BitShiftL(a=bitshift6,out=bitshift7);
+
+	Mult1(a=b[7],b=bitshift7, out=res8);
+	BitShiftL(a=bitshift7,out=bitshift8);
+
+	Mult1(a=b[8],b=bitshift8, out=res9);
+	BitShiftL(a=bitshift8,out=bitshift9);
+	
+	Mult1(a=b[9],b=bitshift9, out=res10);
+	BitShiftL(a=bitshift9,out=bitshift10);
+	
+	Mult1(a=b[10],b=bitshift10, out=res11);
+	BitShiftL(a=bitshift10,out=bitshift11);
+	
+	Mult1(a=b[11],b=bitshift11, out=res12);
+	BitShiftL(a=bitshift11,out=bitshift12);
+	
+	Mult1(a=b[12],b=bitshift12, out=res13);
+	BitShiftL(a=bitshift12,out=bitshift13);
+	
+	Mult1(a=b[13],b=bitshift13, out=res14);
+	BitShiftL(a=bitshift13,out=bitshift14);
+	
+	Mult1(a=b[14],b=bitshift14, out=res15);
+	BitShiftL(a=bitshift14,out=bitshift15);
+
+	Mult1(a=b[15],b=bitshift15, out=res16);	
+	
+	
+	Add16(a=res1,b=res2,out=z1);
+	Add16(a=z1,b=res3,out=z2);
+	Add16(a=z2,b=res4,out=z3);
+	Add16(a=z3,b=res5,out=z4);
+	Add16(a=z4,b=res6,out=z5);
+	Add16(a=z5,b=res7,out=z6);
+	Add16(a=z6,b=res8,out=z7);
+	Add16(a=z7,b=res9,out=z8);
+	Add16(a=z8,b=res10,out=z9);
+	Add16(a=z9,b=res11,out=z10);
+	Add16(a=z10,b=res12,out=z11);
+	Add16(a=z11,b=res13,out=z12);
+	Add16(a=z12,b=res14,out=z13);
+	Add16(a=z13,b=res15,out=z14);
+	Add16(a=z14,b=res16,out=out);
+}
