@@ -1,0 +1,44 @@
+function mid 3
+
+    push argument 0
+    push argument 1
+    gt 
+    if-goto xvy
+        push argument 1
+        push argument 2
+        gt
+        if-goto yvz
+            push argument 1 
+            return
+
+label xvy
+    push argument 0
+    push argument 2
+    gt
+    if-goto xvz
+        push argument 0
+        return
+
+label yvz
+    push argument 0
+    push argument 2
+    gt
+    if-goto xvz2
+        push argument 2
+        return
+
+label xvz
+    push argument 1 
+    push argument 2
+    gt
+    if-goto yvz2
+        push argument 2
+        return
+
+label xvz2
+    push argument 0
+    return
+
+label yvz2
+    push argument 1
+    return
