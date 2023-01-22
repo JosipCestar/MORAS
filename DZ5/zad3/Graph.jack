@@ -1,0 +1,43 @@
+class Graph
+{
+    function int f (int x)
+    {
+        return ((x*x*x)-2);
+    }
+
+    function void DrawGraph()
+    {
+        var int x, fx, lastx, lasty, graphoffsetx, graphoffsety;
+        let graphoffsetx = 100;
+        let graphoffsety = 50;
+
+		let lastx = 10000;
+		let lasty = 10000;
+
+		do Screen.drawLine(256, 0 + graphoffsety, 256, 255 - graphoffsety);
+		do Screen.drawLine(0 + graphoffsetx, 128, 511 - graphoffsetx, 128);
+
+
+        let x = -33;
+
+        while (x < 34)
+        {
+            let fx = Graph.f(x);
+		
+            if ((fx > -33) & (fx < 33))
+            {
+				if (~(lastx = 10000) & ~(lasty = 10000))
+				{
+					do Screen.drawLine(256 + lastx, 128 - lasty, 256 + x, (128 - fx));	
+				}
+
+				let lastx = x;
+				let lasty = fx;
+            }
+
+			let x = x + 1; 
+        }
+
+        return;
+    }
+}

@@ -1,0 +1,50 @@
+class Main
+{
+    function void main()
+    {
+        var Vint veca, vecb, vecc, vecd;
+
+        let veca = Vint.new(2);
+        let vecb = Vint.new(2);
+        let vecc = Vint.new(2);
+        let vecd = Vint.new(2);
+
+        
+        do veca.set(0, 2);
+        do veca.set(1, 5);
+        do veca.set(2, 7);
+        do veca.set(3, 1);
+
+        do vecb.set(0, 2);
+        do vecb.set(1, 5);
+        do vecb.set(2, 7);
+        do vecb.set(3, 1);
+
+        do vecc.set(0, 1);
+        do vecc.set(1, 2);
+        do vecc.set(2, 5);
+        do vecc.set(3, 7);
+
+        do vecd.set(0, 5);
+        do vecd.set(1, 15);
+        do vecd.set(2, 20);
+        do vecd.set(3, 30);
+
+        do veca.print();
+        do vecb.print();
+        do vecc.print();
+        do vecd.print();
+        
+        do Output.printInt(Vint.is_eq(veca, vecb));
+        do Output.println();
+        do Output.printInt(Vint.is_eq(veca, vecc));
+        do Output.println();
+
+        do Output.printInt(Vint.elems(veca, vecc));
+        do Output.println();
+        do Output.printInt(Vint.elems(veca, vecd));
+        do Output.println();
+
+        return;
+    }
+}

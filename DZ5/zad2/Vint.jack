@@ -1,0 +1,142 @@
+class Vint
+{
+    field int capacity;
+    field Array data;
+
+    function int _pow(int a, int b)
+    {
+        var int result, i;
+        let result = 1;
+
+        let i = 0;
+        while (i < b)
+        {
+            let result = result * a;
+            let i = i + 1;
+        }
+
+        return result;
+    }
+
+    constructor Vint new(int n)
+    {
+        if (n < 0)
+        {
+            let capacity = 1;
+            let data = Array.new(1);
+        }        
+        else
+        {
+            let capacity = Vint._pow(2, n);
+            let data = Array.new(capacity);
+        }
+
+        return this;
+    }
+
+    method int len()
+    {
+        return capacity;
+    }
+
+    method void set(int k, int v)
+    {
+        if ((k > capacity) | (k = capacity) | (k < 0))
+        {
+            do Output.printString("Vector index out of bounds.");
+            do Output.println();
+            return;
+        }
+
+        let data[k] = v;
+
+        return;
+    }
+
+    method int get(int k)
+    {
+        if ((k > capacity) | (k = capacity) | (k < 0))
+        {
+            do Output.printString("Vector index out of bounds.");
+            do Output.println();
+            return -1;
+        }
+
+        return data[k];
+    }
+
+    method Array getData()
+    {
+        return data;
+    }
+
+    function bool is_eq(Vint veca, Vint vecb)
+    {
+        var int i;
+
+        if (~(veca.len() = vecb.len()))
+        {
+            return false;
+        }
+
+        while (i < veca.len())
+        {
+            if (~(veca.get(i) = vecb.get(i)))
+            {
+                return false;
+            }
+
+            let i = i + 1;
+        }
+
+        return true;
+    }
+
+    function bool elems(Vint veca, Vint vecb)
+    {
+        var Array arra, arrb;
+        var int i;
+
+        if (~(veca.len() = vecb.len()))
+        {
+            return false;
+        }
+
+        let arra = veca.getData();
+        let arrb = vecb.getData();
+        
+
+        do QuickSort.sort(arra, 0, veca.len() - 1);
+        do QuickSort.sort(arrb, 0, vecb.len() - 1);
+
+        while (i < veca.len())
+        {
+            if (~(arra[i] = arrb[i]))
+            {
+                return false;
+            }
+
+            let i = i + 1;
+        }
+
+        return true;
+    }
+
+
+
+    method void print()
+    {
+        var int i;
+        while (i < capacity)
+        {
+            do Output.printInt(data[i]);
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+        do Output.println();
+
+        return;
+    }
+    
+}

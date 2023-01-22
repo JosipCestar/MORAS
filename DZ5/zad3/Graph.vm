@@ -1,0 +1,101 @@
+function Graph.f 0
+push argument 0
+push argument 0
+call Math.multiply 2
+push argument 0
+call Math.multiply 2
+push constant 2
+sub
+return
+function Graph.DrawGraph 6
+push constant 100
+pop local 4
+push constant 50
+pop local 5
+push constant 10000
+pop local 2
+push constant 10000
+pop local 3
+push constant 256
+push constant 0
+push local 5
+add
+push constant 256
+push constant 255
+push local 5
+sub
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+push local 4
+add
+push constant 128
+push constant 511
+push local 4
+sub
+push constant 128
+call Screen.drawLine 4
+pop temp 0
+push constant 33
+neg
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 34
+lt
+not
+if-goto WHILE_END0
+push local 0
+call Graph.f 1
+pop local 1
+push local 1
+push constant 33
+neg
+gt
+push local 1
+push constant 33
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 2
+push constant 10000
+eq
+not
+push local 3
+push constant 10000
+eq
+not
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 256
+push local 2
+add
+push constant 128
+push local 3
+sub
+push constant 256
+push local 0
+add
+push constant 128
+push local 1
+sub
+call Screen.drawLine 4
+pop temp 0
+label IF_FALSE1
+push local 0
+pop local 2
+push local 1
+pop local 3
+label IF_FALSE0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
